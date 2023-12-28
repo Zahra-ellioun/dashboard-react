@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import { LogIn } from "./component";
+import { LogIn } from "./component/Index";
 
-function App() {
+const App = () => {
   return (
     <>
       <Routes>
@@ -9,6 +9,6 @@ function App() {
       </Routes>
     </>
   );
-}
+};
 
 export default App;
