@@ -3,7 +3,7 @@ const Input = ({ labelName }) => {
     <div class="relative mb-3">
       <input
         type="text"
-        class=" peer block min-h-[auto] w-full rounded border-2 border-grayMid bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
+        class=" peer block min-h-[auto] w-full rounded border border-grayMid  focus:border-blue bg-transparent px-2 py-[0.32rem] leading-[2.15] outline-none transition-all duration-150 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
         id="email"
       />
       <label
