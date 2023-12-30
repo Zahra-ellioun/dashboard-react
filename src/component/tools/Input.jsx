@@ -1,6 +1,6 @@
 const Input = ({ labelName }) => {
   return (
-    <div class="relative mb-3" data-te-input-wrapper-init>
+    <div class="relative mb-3">
       <input
         type="text"
         class=" peer block min-h-[auto] w-full rounded border-2 border-grayMid bg-transparent px-3 py-[0.32rem] leading-[2.15] outline-none transition-all duration-200 ease-linear peer-focus:text-primary  motion-reduce:transition-none "

@@ -1,7 +1,12 @@
 import { Input } from "./Index.jsx";
+import bgImage from "../assets/pictures/bg-login.jpg";
+
 const LogIn = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div
+      className="flex justify-center items-center h-screen bg-cover bg-no-repeat"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <div className="h-1/2 w-1/2 bg-background shadow-xl rounded-xl">
         {/* blue box */}
         <div className="bg-blue  mx-8 py-8 rounded-xl -m-10">
