@@ -1,8 +1,9 @@
 import { Toggle, Button } from "./Index.jsx";
 import bgImage from "../assets/pictures/bg-login.jpg";
 import { Link } from "react-router-dom";
-import { Field, Formik, Form } from "formik";
+import { Field, Formik, Form, ErrorMessage } from "formik";
 import { loginValidation } from "../validation/loginValidation";
+
 // import { useState } from "react";
 
 const LogIn = () => {
@@ -33,46 +34,48 @@ const LogIn = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidation}
-          onSubmit={(information) => {
-            console.log(information);
-            // setValue(information);
+          onSubmit={(values) => {
+            console.log(values);
+            // setValue(values);
           }}
         >
           {
             <Form>
               <div className="flex flex-col gap-y-3 mx-4 mt-16">
                 {/* email */}
-                <div class="relative mb-3">
+                <div className="relative mb-3">
                   <Field
                     type="text"
                     name="email"
-                    class=" peer block min-h-[auto] w-full rounded border border-grayMid  focus:border-blue bg-transparent px-2 py-[0.32rem] leading-[2.15] outline-none transition-all duration-150 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
+                    className=" peer block min-h-[auto] w-full rounded border border-grayMid  focus:border-blueLight bg-transparent px-2 py-[0.32rem] leading-[2.15] outline-none transition-all duration-150 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
                   />
                   <label
-                    for="email"
-                    class="px-4 pointer-events-none absolute right-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-grayDark transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.9] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.9] motion-reduce:transition-none peer-focus:bg-background"
+                    htmlFor="email"
+                    className="px-4 pointer-events-none absolute right-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-grayDark transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.9] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.9] motion-reduce:transition-none peer-focus:bg-background"
                   >
                     ایمیل
                   </label>
+                  <ErrorMessage name="email" />
                 </div>
                 {/* password */}
-                <div class="relative mb-3">
+                <div className="relative mb-3">
                   <Field
                     type="text"
                     name="password"
-                    class=" peer block min-h-[auto] w-full rounded border border-grayMid  focus:border-blue bg-transparent px-2 py-[0.32rem] leading-[2.15] outline-none transition-all duration-150 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
+                    className=" peer block min-h-[auto] w-full rounded border border-grayMid  focus:border-blueLight bg-transparent px-2 py-[0.32rem] leading-[2.15] outline-none transition-all duration-150 ease-linear peer-focus:text-primary  motion-reduce:transition-none "
                   />
                   <label
-                    for="email"
-                    class="px-4 pointer-events-none absolute right-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-grayDark transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.9] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.9] motion-reduce:transition-none peer-focus:bg-background"
+                    html="email"
+                    className="px-4 pointer-events-none absolute right-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[2.15] text-grayDark transition-all duration-200 ease-out peer-focus:-translate-y-[1.15rem] peer-focus:scale-[0.9] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[1.15rem] peer-data-[te-input-state-active]:scale-[0.9] motion-reduce:transition-none peer-focus:bg-background "
                   >
                     رمز{" "}
                   </label>
+                  <ErrorMessage name="password" />
                 </div>
                 {/* toggle*/}
                 <Toggle text={"ذخیره اطلاعات"} />
                 {/* button */}
-                <Button type="submit" text={"ورود"} />
+                <Button type={"submit"} text={"ورود"} />
                 <p className="mb-7 py-3 text-grayDark text-center">
                   آیا حساب کاربری ندارید؟{" "}
                   <Link href="/" className="text-blueLight">
