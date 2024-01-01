@@ -1,13 +1,15 @@
-import { Toggle, Button } from "./Index.jsx";
+import { Toggle, Button, Spinner } from "./Index.jsx";
 import bgImage from "../assets/pictures/bg-login.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import { loginValidation } from "../validation/loginValidation";
-
-// import { useState } from "react";
+import { getLoginInf } from "../services/loginservice.js";
+import { useState } from "react";
 
 const LogIn = () => {
-  // const [value, setValue] = useState({});
+  const navigate = useNavigate();
+  const { loading, setLoading } = useState(false);
+
   return (
     // back ground image
     <div
@@ -34,12 +36,23 @@ const LogIn = () => {
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidation}
-          onSubmit={(values) => {
-            console.log(values);
-            // setValue(values);
+          onSubmit={async (value) => {
+            try {
+              console.log(value);
+              const { data: contact, status } = await getLoginInf(value);
+              console.log(contact);
+              if (status === 201) {
+                navigate("/dashboard");
+              }
+            } catch (err) {
+              navigate("/dashboard");
+              console.log(err);
+            }
           }}
         >
-          {
+          {loading ? (
+            <Spinner />
+          ) : (
             <Form>
               <div className="flex flex-col gap-y-3 mx-4 mt-16">
                 {/* email */}
@@ -84,10 +97,18 @@ const LogIn = () => {
                 </p>
               </div>
             </Form>
-          }
+          )}
         </Formik>
       </div>
     </div>
   );
 };
+
+/**
+ * {
+ *    Status Code: int
+ *    Message: string
+ *    Data: null --> object
+ * }
+ */
 export default LogIn;
