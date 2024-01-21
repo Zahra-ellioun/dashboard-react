@@ -1,6 +1,12 @@
 export { default as LogIn } from "./LogIn";
+export { default as SingUp } from "./SignUp";
 export { default as Input } from "./tools/Input";
 export { default as Toggle } from "./tools/Toggle";
 export { default as Button } from "./tools/Button";
 export { default as Spinner } from "./Spinner";
 export { default as MenuSidebar } from "./MenuSidebar";
+export { default as Divide } from "./tools/Divide";
+export { default as Dashboard } from "./Dashboard";
+export { default as MyProfile } from "./MyProfile";
+export { default as ChangePass } from "./ChangePass";
+export { default as SimpleInput } from "./tools/SimpleInput";
