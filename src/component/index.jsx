@@ -1,6 +1,7 @@
 export { default as Sales } from "./Sales";
 export { default as LogIn } from "./LogIn";
 export { default as SingUp } from "./SignUp";
+export { default as Header } from "./Haeder";
 export { default as Spinner } from "./Spinner";
 export { default as Dashboard } from "./Dashboard";
 export { default as MyProfile } from "./MyProfile";
@@ -11,5 +12,6 @@ export { default as Input } from "./tools/Input";
 export { default as Toggle } from "./tools/Toggle";
 export { default as Button } from "./tools/Button";
 export { default as Divide } from "./tools/Divide";
-export { default as SimpleInput } from "./tools/SimpleInput";
 export { default as Pagination } from "./tools/pagination";
+export { default as SimpleInput } from "./tools/SimpleInput";
+export { default as HamburgerMenu } from "./tools/HamburgerMenu";

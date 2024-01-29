@@ -37,7 +37,7 @@ const MyProfile = () => {
   }, []);
 
   return (
-    <div className="px-4 xl:px-0 h-full">
+    <div className="px-4 xl:px-0 ">
       {/* picture in top */}
       <div
         className="h-72 rounded-xl w-full bg-cover bg-bottom"

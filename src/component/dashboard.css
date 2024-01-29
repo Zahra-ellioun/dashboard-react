@@ -1,0 +1,7 @@
+.hide {
+  @apply w-0 xl:w-fit min-h-full z-10;
+}
+
+.show {
+  @apply absolute xl:static top-0 right-0 w-fit min-h-full z-10 p-4 xl:p-0 bottom-0;
+}
