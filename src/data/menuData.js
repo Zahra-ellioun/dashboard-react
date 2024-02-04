@@ -6,10 +6,12 @@ export const sidebarMenuData = [
       {
         id: 1,
         name: "پروفایل من",
+        link: "/dashboard",
       },
       {
         id: 2,
         name: "عکس های من ",
+        link: "",
       },
     ],
   },
@@ -20,10 +22,12 @@ export const sidebarMenuData = [
       {
         id: 3,
         name: "آنالایزر",
+        link: "",
       },
       {
         id: 4,
         name: "فروش ها",
+        link: "/sales",
       },
     ],
   },
@@ -34,6 +38,7 @@ export const sidebarMenuData = [
       {
         id: 1,
         name: "صفحه ورود",
+        link: "/",
       },
     ],
   },

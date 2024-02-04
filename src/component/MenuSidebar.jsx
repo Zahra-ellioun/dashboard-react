@@ -4,20 +4,20 @@ import { Divide } from "./Index";
 import { Link } from "react-router-dom";
 import { sidebarMenuData } from "../data/menuData";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { getUserProfile } from "../services/loginservice";
+import { dashboardContext } from "../context/dashboardContext";
 
 const MenuSidebar = () => {
   const [items, setItems] = useState(sidebarMenuData);
   const navigate = useNavigate("");
-  // const [contactInfo, setContactInfo] = useState({
-  //   username: "Undefiend",
-  // });
+  const { setSidebarMenuShow } = useContext(dashboardContext);
 
   const handleButtonClick = (e) => {
-    // console.log(e.currentTarget);
     e.currentTarget.nextSibling.classList.toggle("hidden");
   };
+
+  const closeSidebarMenu = () => setSidebarMenuShow((prev) => !prev);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +39,12 @@ const MenuSidebar = () => {
   return (
     <div className="h-full overflow-auto">
       {/* container dark gray */}
-      <aside className="bg-[#3B3B41] rounded-2xl px-4 w-[250px] text-white h-full">
-        <h3 className="text-2xl text-center py-5">پیشخوان</h3>
+      <aside className="bg-[#3B3B41] rounded-2xl px-4 w-[250px] text-white h-full relative">
+        <i
+          onClick={closeSidebarMenu}
+          className="absolute top-2 right-4 text-2xl fa-solid fa-xmark"
+        ></i>
+        <h3 className="text-2xl text-center pt-9 pb-5">پیشخوان</h3>
         <Divide />
         <ul>
           {sidebarMenuData &&
@@ -73,11 +77,13 @@ const MenuSidebar = () => {
                       {item.submenu?.length &&
                         item.submenu.map((sub) => {
                           return (
-                            <li
-                              key={sub.id}
-                              className="hover:bg-grayLight hover:text-black ounrded-md px-6 py-2 "
-                            >
-                              <Link className="text-lg">{sub.name}</Link>
+                            <li key={sub.id} onClick={closeSidebarMenu}>
+                              <Link
+                                to={sub.link}
+                                className="block hover:bg-grayLight hover:text-black rounded-md px-6 py-2 text-lg"
+                              >
+                                {sub.name}
+                              </Link>
                             </li>
                           );
                         })}
